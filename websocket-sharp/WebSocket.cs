@@ -2123,6 +2123,7 @@ namespace WebSocketSharp
         _stream = _tcpClient.GetStream ();
       }
 
+      _tcpClient.NoDelay = true;
       if (_secure) {
         var conf = getSslConfiguration ();
         var host = conf.TargetHost;

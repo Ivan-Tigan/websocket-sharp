@@ -848,6 +848,7 @@ namespace WebSocketSharp.Server
         TcpClient cl = null;
         try {
           cl = _listener.AcceptTcpClient ();
+          cl.NoDelay = true;
           ThreadPool.QueueUserWorkItem (
             state => {
               try {
