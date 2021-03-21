@@ -799,6 +799,7 @@ namespace WebSocketSharp.Server
       _authSchemes = AuthenticationSchemes.Anonymous;
       _dnsStyle = Uri.CheckHostName (hostname) == UriHostNameType.Dns;
       _listener = new TcpListener (address, port);
+      _listener.Server.NoDelay = true;
       _log = new Logger ();
       _services = new WebSocketServiceManager (_log);
       _sync = new object ();
